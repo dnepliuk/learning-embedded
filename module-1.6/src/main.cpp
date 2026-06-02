@@ -2,19 +2,17 @@
 #include <math.h>
 
 #define LDR_PIN 8
-#define LED_PIN 4
 
 const float ADC_MAX_VALUE = 4095.0;
 const float SUPPLY_VOLTAGE_MV = 3300.0;
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
 
-  // Даємо Serial Monitor час підключитися після прошивки
   delay(2000);
 
   pinMode(LDR_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
 
   analogReadResolution(12);
   analogSetPinAttenuation(LDR_PIN, ADC_11db);
@@ -24,7 +22,8 @@ void setup() {
   Serial.println("RAW\tCalculated, mV\tMeasured, mV\tError, mV\tError, %");
 }
 
-void loop() {
+void loop()
+{
   int adcValue = analogRead(LDR_PIN);
 
   float calculatedVoltageMv =
@@ -37,7 +36,8 @@ void loop() {
 
   float errorPercent = 0.0;
 
-  if (measuredVoltageMv > 0) {
+  if (measuredVoltageMv > 0)
+  {
     errorPercent =
         (errorMv / measuredVoltageMv) * 100.0;
   }
@@ -48,14 +48,6 @@ void loop() {
       calculatedVoltageMv,
       (unsigned long)measuredVoltageMv,
       errorMv,
-      errorPercent
-  );
-
-  if (adcValue < 2000) {
-    digitalWrite(LED_PIN, HIGH);
-  } else {
-    digitalWrite(LED_PIN, LOW);
-  }
-
+      errorPercent);
   delay(100);
 }
