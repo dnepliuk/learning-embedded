@@ -46,8 +46,6 @@ void setup()
   pinMode(LED_3, OUTPUT);
 
   pinMode(BUTTON, INPUT);
-  // Якщо це проста кнопка між GPIO і GND без модуля, краще:
-  // pinMode(BUTTON, INPUT_PULLUP);
 
   attachInterrupt(
       digitalPinToInterrupt(BUTTON),
