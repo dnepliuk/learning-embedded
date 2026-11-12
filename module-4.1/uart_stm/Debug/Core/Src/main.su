@@ -1,0 +1,10 @@
+../Core/Src/main.c:74:13:UART_ProcessByte	16	static
+../Core/Src/main.c:111:13:UART_SendLedState	16	static
+../Core/Src/main.c:129:13:Button_Task	16	static
+../Core/Src/main.c:160:5:main	8	static
+../Core/Src/main.c:222:6:SystemClock_Config	88	static
+../Core/Src/main.c:264:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:297:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:330:6:HAL_UART_RxCpltCallback	24	static
+../Core/Src/main.c:350:6:HAL_UART_ErrorCallback	24	static
+../Core/Src/main.c:378:6:Error_Handler	4	static,ignoring_inline_asm
